@@ -1,0 +1,22 @@
+# Ignore plugin installs (packer, lazy.nvim, etc.)
+plugin/
+site/
+.venv/
+node_modules/
+log/
+*.log
+
+# Ignore backups, swap, undo files
+*.swp
+*.swo
+*.un~
+*.bak
+*.tmp
+
+# Ignore compiled Lua cache (if using luarocks or others)
+*.luac
+
+# Ignore local machine-specific configs
+local.lua
+.env
+
