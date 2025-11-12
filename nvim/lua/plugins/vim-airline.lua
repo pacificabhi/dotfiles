@@ -1,11 +1,13 @@
 return {
   {
+    "vim-airline/vim-airline-themes",
+    priority = 1001,
+    lazy = false,
+  },
+  {
     "vim-airline/vim-airline",
     priority = 1000,
     lazy = false,
-    dependencies = {
-      "vim-airline/vim-airline-themes",
-    },
     init = function()
       vim.opt.showtabline = 2
       vim.g.airline_powerline_fonts = 1

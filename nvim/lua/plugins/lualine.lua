@@ -48,6 +48,13 @@ return {
       return journey
     end
 
+      local function lint_status()
+        if _G.NvimLintStatus then
+          return _G.NvimLintStatus()
+        end
+        return ""
+      end
+
       require('lualine').setup({
         options = {
           theme = 'dracula'
@@ -56,6 +63,12 @@ return {
           lualine_c = {
             { jumplist_status },
           { 'filename', path = 0 },
+          },
+          lualine_x = {
+            lint_status,
+            'encoding',
+            'fileformat',
+            'filetype',
           },
         },
       })

@@ -53,7 +53,6 @@ return {
             buffer = bufnr,
             callback = function()
               go_organize_imports(bufnr)
-              vim.lsp.buf.format({ bufnr = bufnr, async = false })
             end,
           })
         end
