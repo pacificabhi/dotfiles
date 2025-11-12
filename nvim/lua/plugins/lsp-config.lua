@@ -16,8 +16,9 @@ return {
       local mason_lsp = require("mason-lspconfig")
 
       local goimports_group = vim.api.nvim_create_augroup("GoAutoImports", {})
-      local function go_organize_imports(bufnr)
-        local params = vim.lsp.util.make_range_params()
+      local function go_organize_imports(bufnr, position_encoding)
+        position_encoding = position_encoding or "utf-16"
+        local params = vim.lsp.util.make_range_params(nil, position_encoding)
         params.context = { only = { "source.organizeImports" } }
         local result = vim.lsp.buf_request_sync(bufnr, "textDocument/codeAction", params, 1000)
         if not result then
@@ -27,7 +28,7 @@ return {
         for _, res in pairs(result) do
           for _, action in pairs(res.result or {}) do
             if action.edit then
-              vim.lsp.util.apply_workspace_edit(action.edit, "utf-16")
+              vim.lsp.util.apply_workspace_edit(action.edit, position_encoding)
             elseif action.command then
               vim.lsp.buf.execute_command(action.command)
             end
@@ -48,11 +49,12 @@ return {
 
         if client and client.name == "gopls" then
           vim.api.nvim_clear_autocmds({ group = goimports_group, buffer = bufnr })
+          local encoding = client.offset_encoding or "utf-16"
           vim.api.nvim_create_autocmd("BufWritePre", {
             group = goimports_group,
             buffer = bufnr,
             callback = function()
-              go_organize_imports(bufnr)
+              go_organize_imports(bufnr, encoding)
             end,
           })
         end

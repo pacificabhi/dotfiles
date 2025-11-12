@@ -10,6 +10,7 @@ vim.opt.expandtab = true
 vim.opt.termguicolors = true
 vim.opt.smartindent = true
 vim.opt.cursorline = true
+vim.opt.colorcolumn = "80,100"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = false
