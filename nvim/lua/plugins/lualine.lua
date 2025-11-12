@@ -1,7 +1,9 @@
 return {
-  "nvim-lualine/lualine.nvim",
-  config = function()
-    local function jumplist_status()
+  {
+    "nvim-lualine/lualine.nvim",
+    priority = 500,
+    config = function()
+      local function jumplist_status()
       local jumps, current_pos = unpack(vim.fn.getjumplist())
       local bufs = {}
 
@@ -46,16 +48,17 @@ return {
       return journey
     end
 
-    require('lualine').setup({
-      options = {
-        theme = 'dracula'
-      },
-      sections = {
-        lualine_c = {
-          { jumplist_status },
-          { 'filename', path = 1 },
+      require('lualine').setup({
+        options = {
+          theme = 'dracula'
         },
-      },
-    })
-  end
+        sections = {
+          lualine_c = {
+            { jumplist_status },
+          { 'filename', path = 0 },
+          },
+        },
+      })
+    end,
+  },
 }
