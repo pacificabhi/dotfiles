@@ -10,7 +10,7 @@ return {
       "neovim/nvim-lspconfig",
     },
     opts = {
-      ensure_installed = { "lua_ls", "gopls" },
+      ensure_installed = { "lua_ls", "gopls", "ts_ls" },
     },
     config = function(_, opts)
       local mason_lsp = require("mason-lspconfig")
@@ -76,6 +76,9 @@ return {
           },
         },
         gopls = {},
+        ts_ls = {
+          filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+        },
       }
 
       for server_name, server_opts in pairs(servers) do
