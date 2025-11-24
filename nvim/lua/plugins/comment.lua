@@ -5,10 +5,8 @@ return {
     keys = {
       { "gc", mode = { "n", "v" }, desc = "Toggle line comment" },
       { "gb", mode = { "n", "v" }, desc = "Toggle block comment" },
-      { "<C-_>", mode = { "n", "v" }, desc = "Toggle comment (VSCode style)" },
-      { "<C-/>", mode = { "n", "v" }, desc = "Toggle comment (VSCode style)" },
-      { "<C-S-_>", mode = "n", desc = "Toggle block comment (VSCode style)" },
-      { "<C-S-/>", mode = "n", desc = "Toggle block comment (VSCode style)" },
+      { "<leader>/", mode = { "n", "v" }, desc = "Toggle comment (leader)" },
+      { "<leader>cb", mode = "n", desc = "Toggle block comment (leader)" },
     },
     config = function()
       require("Comment").setup({
@@ -40,13 +38,10 @@ return {
         api.toggle.linewise(vim.fn.visualmode())
       end
 
-      vim.keymap.set("n", "<C-_>", toggle_line_comment, { desc = "Toggle line comment (VSCode style)" })
-      vim.keymap.set("n", "<C-/>", toggle_line_comment, { desc = "Toggle line comment (VSCode style)" })
-      vim.keymap.set("n", "<C-S-_>", toggle_block_comment, { desc = "Toggle block comment (VSCode style)" })
-      vim.keymap.set("n", "<C-S-/>", toggle_block_comment, { desc = "Toggle block comment (VSCode style)" })
+      vim.keymap.set("n", "<leader>/", toggle_line_comment, { desc = "Toggle line comment" })
+      vim.keymap.set("n", "<leader>cb", toggle_block_comment, { desc = "Toggle block comment" })
 
-      vim.keymap.set("x", "<C-_>", toggle_visual, { desc = "Toggle comment for selection (VSCode style)" })
-      vim.keymap.set("x", "<C-/>", toggle_visual, { desc = "Toggle comment for selection (VSCode style)" })
+      vim.keymap.set("x", "<leader>/", toggle_visual, { desc = "Toggle comment for selection" })
     end,
   },
 }
