@@ -5,6 +5,7 @@ site/
 node_modules/
 log/
 *.log
+.nvimlog
 
 # Ignore backups, swap, undo files
 *.swp

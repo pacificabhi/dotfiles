@@ -22,7 +22,7 @@ return {
           end
         end,
         formatters_by_ft = {
-          go = { "gofumpt" },
+          go = { "gofmt" },
           proto = { "clang_format" },
         },
       }
@@ -193,7 +193,6 @@ return {
     config = function()
       require("mason-tool-installer").setup({
         ensure_installed = {
-          "gofumpt",
           "goimports",
           "golangci-lint",
           "buf",
