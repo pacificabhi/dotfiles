@@ -15,6 +15,24 @@ return {
     config = function(_, opts)
       local mason_lsp = require("mason-lspconfig")
 
+      -- Show diagnostic signs/virtual text so errors are visible in the gutter and inline.
+      local signs = { Error = "E", Warn = "W", Hint = "H", Info = "I" }
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+      end
+
+      vim.diagnostic.config({
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
+        virtual_text = { spacing = 2, prefix = "*" },
+        float = {
+          border = "rounded",
+          source = "always",
+        },
+      })
+
       local goimports_group = vim.api.nvim_create_augroup("GoAutoImports", {})
       local function go_organize_imports(bufnr, position_encoding)
         position_encoding = position_encoding or "utf-16"
@@ -86,6 +104,7 @@ return {
           on_attach = on_attach,
           capabilities = capabilities,
         }, server_opts))
+        vim.lsp.enable(server_name)
       end
 
       opts = opts or {}
