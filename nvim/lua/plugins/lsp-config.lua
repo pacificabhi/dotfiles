@@ -26,7 +26,8 @@ return {
         underline = true,
         update_in_insert = false,
         severity_sort = true,
-        virtual_text = { spacing = 2, prefix = "*" },
+        virtual_text = false, -- keep a clean buffer; open floats or lists manually
+        signs = true, -- show gutter markers for diagnostics
         float = {
           border = "rounded",
           source = "always",
