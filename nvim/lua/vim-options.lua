@@ -26,3 +26,17 @@ vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
+
+vim.keymap.set("i", "jk", "<ESC>")
+vim.keymap.set("i", "kj", "<ESC>")
+
+-- Disable arrow keys
+vim.keymap.set("n", "<Up>", "<Nop>")
+vim.keymap.set("n", "<Down>", "<Nop>")
+vim.keymap.set("n", "<Left>", "<Nop>")
+vim.keymap.set("n", "<Right>", "<Nop>")
+vim.keymap.set("i", "<Up>", "<Nop>")
+vim.keymap.set("i", "<Down>", "<Nop>")
+vim.keymap.set("i", "<Left>", "<Nop>")
+vim.keymap.set("i", "<Right>", "<Nop>")
+
