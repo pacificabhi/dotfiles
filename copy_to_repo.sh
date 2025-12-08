@@ -8,3 +8,6 @@ for c in "${configs[@]}"; do
     echo "$c not found"
   fi
 done
+
+echo "copying zsh"
+cp $HOME/.zshrc ./zsh/
