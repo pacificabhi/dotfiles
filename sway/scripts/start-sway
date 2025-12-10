@@ -1,0 +1,8 @@
+#!/bin/bash
+# Sway launcher script with NVIDIA environment variables
+
+# Source NVIDIA environment variables
+source ~/.config/sway/env
+
+# Start Sway with --unsupported-gpu flag (required for NVIDIA proprietary drivers)
+exec sway --unsupported-gpu

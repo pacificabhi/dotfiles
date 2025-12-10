@@ -1,4 +1,4 @@
-configs=("nvim" "hypr" "waybar" "tmux")
+configs=("nvim" "hypr" "waybar" "tmux" "sway")
 
 for c in "${configs[@]}"; do
   if [ -d "$c" ]; then

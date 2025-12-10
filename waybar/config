@@ -3,7 +3,9 @@
     "position": "top",
     "height": 40,
     "modules-left": [
+        "sway/workspaces",
         "hyprland/workspaces",
+        "sway/window",
         "hyprland/window"
     ],
     "modules-center": [
@@ -16,6 +18,14 @@
         "network",
         "tray"
     ],
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{name}"
+    },
+    "sway/window": {
+        "format": "{}"
+    },
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,

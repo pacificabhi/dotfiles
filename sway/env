@@ -1,0 +1,20 @@
+# NVIDIA environment variables for Sway
+# Source this file before starting Sway
+
+export LIBVA_DRIVER_NAME=nvidia
+export GBM_BACKEND=nvidia-drm
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export WLR_NO_HARDWARE_CURSORS=1
+export NVD_BACKEND=direct
+
+# Additional NVIDIA Wayland compatibility
+export WLR_RENDERER=vulkan
+export XDG_SESSION_TYPE=wayland
+export XDG_CURRENT_DESKTOP=sway
+
+# Chrome/Chromium password store (from your Hyprland config)
+export CHROME_PASSWORD_STORE=kwallet6
+export CHROMIUM_PASSWORD_STORE=kwallet6
+
+# Cursor size
+export XCURSOR_SIZE=24
