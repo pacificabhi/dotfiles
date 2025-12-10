@@ -16,18 +16,19 @@ return {
       local mason_lsp = require("mason-lspconfig")
 
       -- Show diagnostic signs/virtual text so errors are visible in the gutter and inline.
-      local signs = { Error = "E", Warn = "W", Hint = "H", Info = "I" }
-      for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-      end
-
       vim.diagnostic.config({
         underline = true,
         update_in_insert = false,
         severity_sort = true,
         virtual_text = false, -- keep a clean buffer; open floats or lists manually
-        signs = true, -- show gutter markers for diagnostics
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = "E",
+            [vim.diagnostic.severity.WARN] = "W",
+            [vim.diagnostic.severity.HINT] = "H",
+            [vim.diagnostic.severity.INFO] = "I",
+          },
+        },
         float = {
           border = "rounded",
           source = "always",
