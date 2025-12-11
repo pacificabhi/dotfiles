@@ -15,6 +15,7 @@
         "pulseaudio",
         "cpu",
         "memory",
+        "custom/gpu",
         "network",
         "tray"
     ],
@@ -41,36 +42,45 @@
     },
     "pulseaudio": {
         "format": "{volume}% {icon}",
-        "format-muted": " muted {format_source}",
+        "format-muted": "\uf6a8 muted {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-bluetooth-muted": "\uf6a8 {icon} {format_source}",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
+            "headphone": "\uf025",
+            "hands-free": "\uf590",
+            "headset": "\uf590",
+            "phone": "\uf3cd",
+            "portable": "\uf3cd",
+            "car": "\uf1b9",
+            "default": [
+                "\uf026",
+                "\uf027",
+                "\uf028"
+            ]
         },
         "on-click": "pavucontrol"
     },
     "network": {
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-disconnected": "Disconnected ⚠",
-        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-wifi": "{essid} ({signalStrength}%) \uf1eb",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} \uf796",
+        "format-disconnected": "Disconnected \u26a0",
+        "tooltip-format": "{ifname} via {gwaddr} \uf796",
         "on-click": "nm-connection-editor"
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage}% \uf4bc",
         "tooltip": "CPU Usage"
     },
     "memory": {
-        "format": "{used} ",
+        "format": "{used} \uf538",
         "tooltip": "Memory Usage"
     },
-
+    "custom/gpu": {
+        "exec": "~/.config/waybar/scripts/gpu.sh",
+        "return-type": "json",
+        "interval": 10,
+        "tooltip": true
+    },
     "tray": {
         "icon-size": 21,
         "spacing": 10
