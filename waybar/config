@@ -42,7 +42,7 @@
     },
     "pulseaudio": {
         "format": "{volume}% {icon}",
-        "format-muted": "\uf6a8 muted {format_source}",
+        "format-muted": "\ueee8",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": "\uf6a8 {icon} {format_source}",
         "format-icons": {
@@ -61,10 +61,10 @@
         "on-click": "pavucontrol"
     },
     "network": {
-        "format-wifi": "{essid} ({signalStrength}%) \uf1eb",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} \uf796",
+        "format-wifi": "{essid} ({signalStrength}%): {ipaddr}/{cidr}",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr}",
         "format-disconnected": "Disconnected \u26a0",
-        "tooltip-format": "{ifname} via {gwaddr} \uf796",
+        "tooltip-format": "{ifname} via {gwaddr}",
         "on-click": "nm-connection-editor"
     },
     "cpu": {
@@ -72,7 +72,7 @@
         "tooltip": "CPU Usage"
     },
     "memory": {
-        "format": "{used} \uf538",
+        "format": "{used} \uefc5",
         "tooltip": "Memory Usage"
     },
     "custom/gpu": {

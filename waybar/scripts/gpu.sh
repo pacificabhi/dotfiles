@@ -14,5 +14,5 @@ TOTAL=$(echo $GPU_MEM | awk '{print $2}')
 PERC=$(awk -v u="$USED" -v t="$TOTAL" 'BEGIN {printf "%.0f", (u/t)*100}')
 
 
-echo "{\"text\":\"GPU: ${GPU_UTIL}% (${PERC}%)\",\"tooltip\":\"GPU Load: ${GPU_UTIL}%\nVRAM: ${USED}MB / ${TOTAL}MB\nPower: ${GPU_POWER}W\"}"
+echo "{\"text\":\"GPU ${GPU_UTIL}% (${PERC}%)\",\"tooltip\":\"GPU Load: ${GPU_UTIL}%\nVRAM: ${USED}MB / ${TOTAL}MB\nPower: ${GPU_POWER}W\"}"
 
