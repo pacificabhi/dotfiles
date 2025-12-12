@@ -8,9 +8,10 @@ return {
     "mason-org/mason-lspconfig.nvim",
     dependencies = {
       "neovim/nvim-lspconfig",
+      "b0o/schemastore.nvim",
     },
     opts = {
-      ensure_installed = { "lua_ls", "gopls", "ts_ls" },
+      ensure_installed = { "lua_ls", "gopls", "ts_ls", "jsonls", "jsonnet_ls" },
     },
     config = function(_, opts)
       local mason_lsp = require("mason-lspconfig")
@@ -99,6 +100,15 @@ return {
         ts_ls = {
           filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
         },
+        jsonls = {
+          settings = {
+            json = {
+              schemas = require('schemastore').json.schemas(),
+              validate = { enable = true },
+            },
+          },
+        },
+        jsonnet_ls = {},
       }
 
       for server_name, server_opts in pairs(servers) do

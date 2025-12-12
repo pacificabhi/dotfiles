@@ -6,7 +6,7 @@ return {
   config = function()
     treeconfig = require("nvim-treesitter.configs")
     treeconfig.setup({
-      ensure_installed = {"lua", "javascript", "go"},
+      ensure_installed = {"lua", "javascript", "go", "json", "jsonnet"},
       highlight = {enable = true},
       indent = {enable = true},
     })

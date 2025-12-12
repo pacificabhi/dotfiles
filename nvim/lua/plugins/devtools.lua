@@ -24,6 +24,8 @@ return {
         formatters_by_ft = {
           go = { "gofmt" },
           proto = { "clang_format" },
+          json = { "prettier" },
+          jsonnet = { "jsonnetfmt" },
         },
       }
     end,
@@ -147,6 +149,7 @@ return {
       lint.linters_by_ft = lint.linters_by_ft or {}
       lint.linters_by_ft.go = { "golangcilint" }
       lint.linters_by_ft.proto = { "buf" }
+      lint.linters_by_ft.json = { "jsonlint" }
 
       vim.api.nvim_create_user_command("Lint", function()
         lint_filetype(vim.api.nvim_get_current_buf())
@@ -197,6 +200,9 @@ return {
           "golangci-lint",
           "buf",
           "clang-format",
+          "prettier",
+          "jsonnetfmt",
+          "jsonlint",
         },
         auto_update = false,
         run_on_start = false,
