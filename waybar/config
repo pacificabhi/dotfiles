@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 40,
+    "height": 35,
     "modules-left": [
         "sway/workspaces",
         "hyprland/workspaces",

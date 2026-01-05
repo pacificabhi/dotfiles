@@ -96,7 +96,22 @@ return {
             },
           },
         },
-        gopls = {},
+        gopls = {
+          settings = {
+            gopls = {
+              gofumpt = false,
+              staticcheck = true,
+              usePlaceholders = false,
+            },
+          },
+          cmd = {
+            "gopls",
+            "-remote=auto",
+          },
+          on_attach = on_attach,
+          capabilities = capabilities,
+          root_dir = vim.fs.root(0, { ".git", ".bazelproject" }),
+        },
         ts_ls = {
           filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
         },

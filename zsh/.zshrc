@@ -124,6 +124,7 @@ if [ -f '/home/abhishek/even/google-cloud-sdk/path.zsh.inc' ]; then . '/home/abh
 if [ -f '/home/abhishek/even/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/abhishek/even/google-cloud-sdk/completion.zsh.inc'; fi
 
 export USE_BAZEL_VERSION=6.4.0
+export GOMEMLIMIT=20GiB
 alias gz='bazel run //:gazelle'
 alias ch='git checkout '
 alias vim='nvim'

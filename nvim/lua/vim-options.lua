@@ -1,6 +1,6 @@
 -- Basics
 vim.opt.number = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.mouse = "a"
 vim.opt.tabstop = 4
