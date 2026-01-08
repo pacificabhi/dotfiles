@@ -1,10 +1,10 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   branch = 'master',
-  lazy = false,
+  event = { "BufReadPost", "BufNewFile" },
   build = ":TSUpdate",
   config = function()
-    treeconfig = require("nvim-treesitter.configs")
+    local treeconfig = require("nvim-treesitter.configs")
     treeconfig.setup({
       ensure_installed = {"lua", "javascript", "go", "json", "jsonnet"},
       highlight = {enable = true},

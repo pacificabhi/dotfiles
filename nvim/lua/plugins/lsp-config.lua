@@ -131,11 +131,15 @@ return {
           on_attach = on_attach,
           capabilities = capabilities,
         }, server_opts))
-        vim.lsp.enable(server_name)
       end
 
       opts = opts or {}
       opts.ensure_installed = opts.ensure_installed or vim.tbl_keys(servers)
+      opts.handlers = {
+        function(server_name)
+          vim.lsp.enable(server_name)
+        end,
+      }
       mason_lsp.setup(opts)
     end,
   },
