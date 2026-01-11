@@ -8,7 +8,7 @@ return {
     treeconfig.setup({
       ensure_installed = {"lua", "javascript", "go", "json", "jsonnet"},
       highlight = {enable = true},
-      indent = {enable = true},
+      indent = {enable = false},
     })
   end
 }

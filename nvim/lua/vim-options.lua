@@ -41,3 +41,9 @@ vim.keymap.set("i", "<Down>", "<Nop>")
 vim.keymap.set("i", "<Left>", "<Nop>")
 vim.keymap.set("i", "<Right>", "<Nop>")
 
+-- Copy file paths
+vim.keymap.set("n", "<leader>yp", ":let @+ = expand('%')<CR>", { noremap = true, silent = true, desc = "Copy relative file path" })
+vim.keymap.set("n", "<leader>yP", ":let @+ = expand('%:p')<CR>", { noremap = true, silent = true, desc = "Copy absolute file path" })
+vim.keymap.set("n", "<leader>yf", ":let @+ = expand('%:t')<CR>", { noremap = true, silent = true, desc = "Copy filename only" })
+vim.keymap.set("n", "<leader>yd", ":let @+ = expand('%:p:h')<CR>", { noremap = true, silent = true, desc = "Copy directory path" })
+

@@ -38,23 +38,25 @@ return {
 
       local goimports_group = vim.api.nvim_create_augroup("GoAutoImports", {})
       local function go_organize_imports(bufnr, position_encoding)
-        position_encoding = position_encoding or "utf-16"
-        local params = vim.lsp.util.make_range_params(nil, position_encoding)
-        params.context = { only = { "source.organizeImports" } }
-        local result = vim.lsp.buf_request_sync(bufnr, "textDocument/codeAction", params, 1000)
-        if not result then
-          return
-        end
+        vim.schedule(function()
+          position_encoding = position_encoding or "utf-16"
+          local params = vim.lsp.util.make_range_params(nil, position_encoding)
+          params.context = { only = { "source.organizeImports" } }
+          local result = vim.lsp.buf_request_sync(bufnr, "textDocument/codeAction", params, 1000)
+          if not result then
+            return
+          end
 
-        for _, res in pairs(result) do
-          for _, action in pairs(res.result or {}) do
-            if action.edit then
-              vim.lsp.util.apply_workspace_edit(action.edit, position_encoding)
-            elseif action.command then
-              vim.lsp.buf.execute_command(action.command)
+          for _, res in pairs(result) do
+            for _, action in pairs(res.result or {}) do
+              if action.edit then
+                vim.lsp.util.apply_workspace_edit(action.edit, position_encoding)
+              elseif action.command then
+                vim.lsp.buf.execute_command(action.command)
+              end
             end
           end
-        end
+        end)
       end
 
       local on_attach = function(client, bufnr)
@@ -100,7 +102,7 @@ return {
           settings = {
             gopls = {
               gofumpt = false,
-              staticcheck = true,
+              staticcheck = false,
               usePlaceholders = false,
             },
           },

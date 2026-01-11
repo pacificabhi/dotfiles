@@ -168,12 +168,12 @@ return {
           lint_filetype(args.buf)
         end,
       })
-      vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
-        group = lint_group,
-        callback = function(args)
-          debounce_lint(args.buf)
-        end,
-      })
+      -- vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
+      --   group = lint_group,
+      --   callback = function(args)
+      --     debounce_lint(args.buf)
+      --   end,
+      -- })
       vim.api.nvim_create_autocmd({ "BufEnter" }, {
         group = lint_group,
         callback = function(args)
