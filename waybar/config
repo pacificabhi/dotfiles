@@ -104,12 +104,10 @@
         "tooltip-format": "Brightness: {percent}%"
     },
     "pulseaudio": {
-        "format": "{volume}% {icon}  {format_source}",
-        "format-muted": "\ueee8 {format_source}",
-        "format-bluetooth": "{volume}% {icon} \uf294 {format_source}",
-        "format-bluetooth-muted": "\uf6a8 {icon} \uf294 {format_source}",
-        "format-source": "{volume}% \uf130",
-        "format-source-muted": "\uf131",
+        "format": "{volume}% {icon}",
+        "format-muted": "\ueee8",
+        "format-bluetooth": "{volume}% {icon} \uf294",
+        "format-bluetooth-muted": "\uf6a8 {icon} \uf294",
         "format-icons": {
             "headphone": "\uf025",
             "hands-free": "\uf590",

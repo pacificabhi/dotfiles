@@ -69,9 +69,8 @@ window#waybar {
     border-bottom-right-radius: 12px;
 }
 
-/* Middle group - Media controls island (backlight, audio, battery) */
+/* Middle group - Display controls island (backlight, battery) */
 #backlight,
-#pulseaudio,
 #battery {
     background: rgba(10, 14, 39, 0.9);
     margin: 4px 0px;
@@ -94,16 +93,26 @@ window#waybar {
     border-bottom-left-radius: 12px;
 }
 
-#pulseaudio {
-    min-width: 150px;
-}
-
 #battery {
     margin-right: 0px;
     min-width: 70px;
     border-right: 2px solid rgba(255, 0, 128, 0.5);
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
+}
+
+/* Audio island - Standalone */
+#pulseaudio {
+    background: rgba(10, 14, 39, 0.9);
+    margin: 4px 8px;
+    padding: 4px 12px;
+    min-width: 80px;
+    color: #0affff;
+    border: 2px solid rgba(10, 255, 255, 0.5);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6),
+                0 0 25px rgba(10, 255, 255, 0.4),
+                inset 0 0 15px rgba(10, 255, 255, 0.1);
 }
 
 /* Right most group - Network and tray */
