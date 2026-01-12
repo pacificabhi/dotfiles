@@ -1,0 +1,244 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: 600;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* Tokyo Night Colors */
+/* Background: #1a1b26, Dark: #16161e, Darker: #0f0f14 */
+/* Foreground: #c0caf5, Comment: #565f89 */
+/* Blue: #7aa2f7, Cyan: #7dcfff, Magenta: #bb9af7, Purple: #9d7cd8 */
+/* Red: #f7768e, Orange: #ff9e64, Yellow: #e0af68, Green: #9ece6a, Teal: #73daca */
+
+/* Left group - Workspaces and Window */
+#workspaces,
+#window,
+#mode,
+#submap {
+    background: rgba(22, 22, 30, 0.85);
+    margin: 4px 0px 4px 8px;
+    padding: 4px 14px;
+    border-radius: 12px;
+    color: #c0caf5;
+    border: 2px solid rgba(122, 162, 247, 0.35);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(122, 162, 247, 0.2);
+}
+
+/* Right group - System stats island (disk, temp, cpu, memory, gpu) */
+#custom-disk,
+#temperature,
+#cpu,
+#memory,
+#custom-gpu {
+    background: rgba(22, 22, 30, 0.85);
+    margin: 4px 0px;
+    padding: 4px 12px;
+    color: #7dcfff;
+    border-top: 2px solid rgba(125, 207, 255, 0.35);
+    border-bottom: 2px solid rgba(125, 207, 255, 0.35);
+    border-left: none;
+    border-right: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(125, 207, 255, 0.2);
+}
+
+#custom-disk {
+    margin-left: 8px;
+    border-left: 2px solid rgba(125, 207, 255, 0.35);
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+#custom-gpu {
+    margin-right: 0px;
+    border-right: 2px solid rgba(125, 207, 255, 0.35);
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+/* Middle group - Media controls island (backlight, audio, battery) */
+#backlight,
+#pulseaudio,
+#battery {
+    background: rgba(22, 22, 30, 0.85);
+    margin: 4px 0px;
+    padding: 4px 12px;
+    color: #bb9af7;
+    border-top: 2px solid rgba(187, 154, 247, 0.35);
+    border-bottom: 2px solid rgba(187, 154, 247, 0.35);
+    border-left: none;
+    border-right: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(187, 154, 247, 0.2);
+}
+
+#backlight {
+    margin-left: 8px;
+    min-width: 60px;
+    border-left: 2px solid rgba(187, 154, 247, 0.35);
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+#pulseaudio {
+    min-width: 150px;
+}
+
+#battery {
+    margin-right: 0px;
+    min-width: 70px;
+    border-right: 2px solid rgba(187, 154, 247, 0.35);
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+/* Right most group - Network and tray */
+#network,
+#tray {
+    background: rgba(22, 22, 30, 0.85);
+    margin: 4px 2px;
+    padding: 4px 12px;
+    color: #73daca;
+    border: 2px solid rgba(115, 218, 202, 0.35);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(115, 218, 202, 0.2);
+    border-radius: 12px;
+}
+
+#network {
+    margin-left: 8px;
+    min-width: 330px;
+}
+
+#tray {
+    margin-right: 8px;
+}
+
+/* Clock - standalone */
+#clock {
+    background: rgba(22, 22, 30, 0.85);
+    margin: 4px 0px;
+    padding: 4px 16px;
+    border-radius: 12px;
+    color: #9d7cd8;
+    font-weight: 700;
+    border: 2px solid rgba(157, 124, 216, 0.35);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(157, 124, 216, 0.2);
+}
+
+/* Workspaces styling */
+#workspaces {
+    padding: 2px 6px;
+}
+
+#workspaces button {
+    color: rgba(86, 95, 137, 0.9);
+    padding: 2px 10px;
+    margin: 0px 3px;
+    border-radius: 8px;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+#workspaces button.active {
+    color: #7aa2f7;
+    background: rgba(122, 162, 247, 0.25);
+    box-shadow: 0 0 15px rgba(122, 162, 247, 0.5),
+                inset 0 0 10px rgba(122, 162, 247, 0.2);
+}
+
+#workspaces button:hover {
+    background: rgba(122, 162, 247, 0.15);
+    color: #c0caf5;
+}
+
+#workspaces button.urgent {
+    color: #f7768e;
+    background: rgba(247, 118, 142, 0.2);
+    box-shadow: 0 0 18px rgba(247, 118, 142, 0.6);
+    animation: urgent-pulse 1.5s ease infinite;
+}
+
+@keyframes urgent-pulse {
+    0% { box-shadow: 0 0 18px rgba(247, 118, 142, 0.6); }
+    50% { box-shadow: 0 0 28px rgba(247, 118, 142, 0.9); }
+    100% { box-shadow: 0 0 18px rgba(247, 118, 142, 0.6); }
+}
+
+/* Window title */
+#window,
+#mode,
+#submap {
+    font-style: italic;
+    color: #a9b1d6;
+}
+
+/* Temperature critical state */
+#temperature.critical {
+    color: #f7768e;
+    border-color: rgba(247, 118, 142, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5),
+                0 0 28px rgba(247, 118, 142, 0.5);
+    animation: critical-glow 1s ease infinite;
+}
+
+@keyframes critical-glow {
+    0% { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 28px rgba(247, 118, 142, 0.5); }
+    50% { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 38px rgba(247, 118, 142, 0.8); }
+    100% { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 28px rgba(247, 118, 142, 0.5); }
+}
+
+/* Battery states */
+#battery.charging {
+    color: #9ece6a;
+    border-color: rgba(158, 206, 106, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(158, 206, 106, 0.3);
+}
+
+#battery.warning:not(.charging) {
+    color: #e0af68;
+    border-color: rgba(224, 175, 104, 0.4);
+}
+
+#battery.critical:not(.charging) {
+    color: #f7768e;
+    border-color: rgba(247, 118, 142, 0.5);
+    animation: battery-critical 1s ease infinite;
+}
+
+@keyframes battery-critical {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+/* Network disconnected */
+#network.disconnected {
+    color: #f7768e;
+    border-color: rgba(247, 118, 142, 0.5);
+}
+
+/* Pulseaudio muted */
+#pulseaudio.muted {
+    color: rgba(86, 95, 137, 0.7);
+}
+
+/* Tray */
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background: rgba(247, 118, 142, 0.3);
+}
