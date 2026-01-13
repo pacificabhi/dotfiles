@@ -1,0 +1,223 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: 700;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* LCD Display - Digital Calculator/Watch Style */
+
+#workspaces,
+#window,
+#mode,
+#submap {
+    background: linear-gradient(180deg, #8ba88b 0%, #a3c6a3 50%, #8ba88b 100%);
+    margin: 4px 0px 4px 8px;
+    padding: 4px 14px;
+    border-radius: 6px;
+    color: #1a341a;
+    font-family: "Courier New", monospace;
+    font-weight: 900;
+    border: 3px solid #4d6b4d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+#custom-disk,
+#temperature,
+#cpu,
+#memory,
+#custom-gpu {
+    background: linear-gradient(180deg, #8ba88b 0%, #a3c6a3 50%, #8ba88b 100%);
+    margin: 4px 0px;
+    padding: 4px 12px;
+    color: #1a341a;
+    font-family: "Courier New", monospace;
+    font-weight: 900;
+    border-top: 3px solid #4d6b4d;
+    border-bottom: 3px solid #4d6b4d;
+    border-left: none;
+    border-right: none;
+}
+
+#custom-disk {
+    margin-left: 8px;
+    border-left: 3px solid #4d6b4d;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+#custom-gpu {
+    margin-right: 0px;
+    border-right: 3px solid #4d6b4d;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+#backlight,
+#battery {
+    background: linear-gradient(180deg, #8ba88b 0%, #a3c6a3 50%, #8ba88b 100%);
+    margin: 4px 0px;
+    padding: 4px 12px;
+    color: #1a341a;
+    font-family: "Courier New", monospace;
+    font-weight: 900;
+    border-top: 3px solid #4d6b4d;
+    border-bottom: 3px solid #4d6b4d;
+    border-left: none;
+    border-right: none;
+}
+
+#backlight {
+    margin-left: 8px;
+    min-width: 60px;
+    border-left: 3px solid #4d6b4d;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+#battery {
+    margin-right: 0px;
+    min-width: 70px;
+    border-right: 3px solid #4d6b4d;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+#pulseaudio {
+    background: linear-gradient(180deg, #8ba88b 0%, #a3c6a3 50%, #8ba88b 100%);
+    margin: 4px 8px;
+    padding: 4px 12px;
+    min-width: 80px;
+    color: #1a341a;
+    font-family: "Courier New", monospace;
+    font-weight: 900;
+    border: 3px solid #4d6b4d;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Network and Bluetooth island */
+#network,
+#bluetooth {
+    background: linear-gradient(180deg, #8ba88b 0%, #a3c6a3 50%, #8ba88b 100%);
+    margin: 4px 0px;
+    padding: 4px 12px;
+    color: #1a341a;
+    font-family: "Courier New", monospace;
+    font-weight: 900;
+    border: 3px solid #4d6b4d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+#network {
+    margin-left: 8px;
+    min-width: 330px;
+    border-left: 2px solid ;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+#bluetooth {
+    margin-right: 0px;
+    border-right: 2px solid ;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+/* Tray - standalone */
+#tray {
+    background: linear-gradient(180deg, #8ba88b 0%, #a3c6a3 50%, #8ba88b 100%);
+    margin: 4px 8px 4px 8px;
+    padding: 4px 12px;
+    color: #1a341a;
+    font-family: "Courier New", monospace;
+    font-weight: 900;
+    border: 3px solid #4d6b4d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+}
+
+#clock {
+    background: linear-gradient(180deg, #8ba88b 0%, #a3c6a3 50%, #8ba88b 100%);
+    margin: 4px 0px;
+    padding: 4px 16px;
+    border-radius: 6px;
+    color: #1a341a;
+    font-family: "Courier New", monospace;
+    font-weight: 900;
+    font-size: 14px;
+    border: 3px solid #4d6b4d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+#workspaces {
+    padding: 2px 6px;
+}
+
+#workspaces button {
+    color: rgba(26, 52, 26, 0.5);
+    padding: 2px 10px;
+    margin: 0px 3px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+#workspaces button.active {
+    color: #1a341a;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.15);
+    color: #1a341a;
+}
+
+#workspaces button.urgent {
+    color: #1a341a;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+#window,
+#mode,
+#submap {
+    font-style: normal;
+    color: #1a341a;
+}
+
+#temperature.critical {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+#battery.charging {
+    color: #1a341a;
+}
+
+#battery.warning:not(.charging) {
+    color: #1a341a;
+}
+
+#battery.critical:not(.charging) {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+#network.disconnected {
+    color: rgba(26, 52, 26, 0.5);
+}
+
+#pulseaudio.muted {
+    color: rgba(26, 52, 26, 0.4);
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}

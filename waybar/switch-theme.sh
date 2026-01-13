@@ -1,42 +1,31 @@
 #!/bin/bash
 
-# Waybar Theme Switcher
-# Usage: ./switch-theme.sh [catppuccin|tokyonight|nord|gruvbox|cyberpunk]
+# Waybar Theme Switcher with wofi
 
 WAYBAR_DIR="$HOME/.config/waybar"
 
-if [ -z "$1" ]; then
-    echo "Waybar Theme Switcher"
-    echo "====================="
-    echo ""
-    echo "Available themes:"
-    echo "  1. catppuccin  - Soft pastel purples, pinks, and blues"
-    echo "  2. tokyonight  - Deep blue/purple with vibrant neon accents"
-    echo "  3. nord        - Cool Arctic blues and cyans"
-    echo "  4. gruvbox     - Warm retro oranges and yellows"
-    echo "  5. cyberpunk   - Neon glow effects with hot pink, cyan, and electric colors"
-    echo ""
-    echo "Usage: $0 <theme>"
-    echo "Example: $0 catppuccin"
-    exit 1
-fi
+# Find all style-*.css files and extract the theme name
+THEMES=$(find "$WAYBAR_DIR" -maxdepth 1 -name "style-*.css" -printf "%f\n" | sed -e 's/style-//' -e 's/\.css//')
 
-THEME="$1"
+# Use wofi to select a theme
+SELECTED_THEME=$(echo "$THEMES" | wofi --dmenu --prompt "Select Theme")
 
-if [ ! -f "$WAYBAR_DIR/style-$THEME.css" ]; then
-    echo "Error: Theme '$THEME' not found!"
-    echo "Available themes: catppuccin, tokyonight, nord, gruvbox, cyberpunk"
-    exit 1
+# Exit if no theme is selected
+if [ -z "$SELECTED_THEME" ]; then
+    echo "No theme selected. Exiting."
+    exit 0
 fi
 
 # Create symlink to the chosen theme
-ln -sf "$WAYBAR_DIR/style-$THEME.css" "$WAYBAR_DIR/style.css"
+ln -sf "$WAYBAR_DIR/style-$SELECTED_THEME.css" "$WAYBAR_DIR/style.css"
 
-echo "Switched to $THEME theme!"
-echo "Restarting waybar..."
+echo "✓ Switched to $SELECTED_THEME theme!"
+echo "✓ Restarting waybar..."
 
 # Restart waybar
-killall waybar
-waybar &
+killall waybar 2>/dev/null
+waybar &>/dev/null &
 
-echo "Done! Waybar is now using the $THEME theme."
+sleep 0.5
+echo "✓ Done! Waybar is now using the $SELECTED_THEME theme."
+echo ""

@@ -1,0 +1,234 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: 700;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* Brutalist - Bold, Geometric, High Contrast */
+
+/* Left group - Workspaces and Window */
+#workspaces,
+#window,
+#mode,
+#submap {
+    background: #000000;
+    margin: 4px 0px 4px 8px;
+    padding: 4px 14px;
+    border-radius: 0;
+    color: #ffffff;
+    border: 4px solid #ffffff;
+    box-shadow: 8px 8px 0 #ffffff;
+}
+
+/* Right group - System stats island */
+#custom-disk,
+#temperature,
+#cpu,
+#memory,
+#custom-gpu {
+    background: #000000;
+    margin: 4px 0px;
+    padding: 4px 12px;
+    color: #ffff00;
+    border-top: 4px solid #ffff00;
+    border-bottom: 4px solid #ffff00;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+}
+
+#custom-disk {
+    margin-left: 8px;
+    border-left: 4px solid #ffff00;
+    border-radius: 0;
+}
+
+#custom-gpu {
+    margin-right: 0px;
+    border-right: 4px solid #ffff00;
+    border-radius: 0;
+}
+
+/* Middle group - Display controls island */
+#backlight,
+#battery {
+    background: #000000;
+    margin: 4px 0px;
+    padding: 4px 12px;
+    color: #ff00ff;
+    border-top: 4px solid #ff00ff;
+    border-bottom: 4px solid #ff00ff;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+}
+
+#backlight {
+    margin-left: 8px;
+    min-width: 60px;
+    border-left: 4px solid #ff00ff;
+    border-radius: 0;
+}
+
+#battery {
+    margin-right: 0px;
+    min-width: 70px;
+    border-right: 4px solid #ff00ff;
+    border-radius: 0;
+}
+
+/* Audio island - Standalone */
+#pulseaudio {
+    background: #000000;
+    margin: 4px 8px;
+    padding: 4px 12px;
+    min-width: 80px;
+    color: #00ffff;
+    border: 4px solid #00ffff;
+    border-radius: 0;
+    box-shadow: 8px 8px 0 #00ffff;
+}
+
+/* Right most group - Network and tray */
+/* Network and Bluetooth island */
+#network,
+#bluetooth {
+    background: #000000;
+    margin: 4px 0px;
+    padding: 4px 12px;
+    color: #00ff00;
+    border: 4px solid #00ff00;
+    box-shadow: 8px 8px 0 #00ff00;
+}
+
+#network {
+    margin-left: 8px;
+    min-width: 330px;
+    border-left: 2px solid ;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+#bluetooth {
+    margin-right: 0px;
+    border-right: 2px solid ;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+/* Tray - standalone */
+#tray {
+    background: #000000;
+    margin: 4px 8px 4px 8px;
+    padding: 4px 12px;
+    color: #00ff00;
+    border: 4px solid #00ff00;
+    box-shadow: 8px 8px 0 #00ff00;
+    border-radius: 0;
+}
+
+/* Clock - standalone */
+#clock {
+    background: #000000;
+    margin: 4px 0px;
+    padding: 4px 16px;
+    border-radius: 0;
+    color: #ff0000;
+    font-weight: 900;
+    border: 4px solid #ff0000;
+    box-shadow: 8px 8px 0 #ff0000;
+}
+
+/* Workspaces styling */
+#workspaces {
+    padding: 2px 6px;
+}
+
+#workspaces button {
+    color: #666666;
+    padding: 2px 10px;
+    margin: 0px 3px;
+    border-radius: 0;
+    background: transparent;
+    transition: all 0.1s ease;
+    border: 2px solid transparent;
+}
+
+#workspaces button.active {
+    color: #ffffff;
+    background: transparent;
+    border: 2px solid #ffffff;
+}
+
+#workspaces button:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+#workspaces button.urgent {
+    color: #ff0000;
+    border: 2px solid #ff0000;
+    animation: urgent-pulse 0.5s ease infinite;
+}
+
+@keyframes urgent-pulse {
+    0% { background: transparent; }
+    50% { background: #ff0000; color: #000000; }
+    100% { background: transparent; }
+}
+
+/* Window title */
+#window,
+#mode,
+#submap {
+    font-style: normal;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+/* Temperature critical state */
+#temperature.critical {
+    color: #ff0000;
+    font-weight: 900;
+}
+
+/* Battery states */
+#battery.charging {
+    color: #00ff00;
+}
+
+#battery.warning:not(.charging) {
+    color: #ffff00;
+}
+
+#battery.critical:not(.charging) {
+    color: #ff0000;
+    font-weight: 900;
+}
+
+/* Network disconnected */
+#network.disconnected {
+    color: #ff0000;
+}
+
+/* Pulseaudio muted */
+#pulseaudio.muted {
+    color: #666666;
+}
+
+/* Tray */
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background: #ff0000;
+}

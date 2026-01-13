@@ -1,0 +1,219 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: 600;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* Gradient - Flowing Colors */
+
+#workspaces,
+#window,
+#mode,
+#submap {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    margin: 4px 0px 4px 8px;
+    padding: 4px 14px;
+    border-radius: 14px;
+    color: #ffffff;
+    font-weight: 700;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+#custom-disk,
+#temperature,
+#cpu,
+#memory,
+#custom-gpu {
+    background: linear-gradient(90deg, #fa709a 0%, #fee140 50%, #30cfd0 100%);
+    margin: 4px 0px;
+    padding: 4px 12px;
+    color: #ffffff;
+    font-weight: 700;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    border-left: none;
+    border-right: none;
+}
+
+#custom-disk {
+    margin-left: 8px;
+    border-left: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+}
+
+#custom-gpu {
+    margin-right: 0px;
+    border-right: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+}
+
+#backlight,
+#battery {
+    background: linear-gradient(90deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+    margin: 4px 0px;
+    padding: 4px 12px;
+    color: #ffffff;
+    font-weight: 700;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    border-left: none;
+    border-right: none;
+}
+
+#backlight {
+    margin-left: 8px;
+    min-width: 60px;
+    border-left: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+}
+
+#battery {
+    margin-right: 0px;
+    min-width: 70px;
+    border-right: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+}
+
+#pulseaudio {
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 50%, #43e97b 100%);
+    margin: 4px 8px;
+    padding: 4px 12px;
+    min-width: 80px;
+    color: #ffffff;
+    font-weight: 700;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Network and Bluetooth island */
+#network,
+#bluetooth {
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 50%, #43e97b 100%);
+    margin: 4px 0px;
+    padding: 4px 12px;
+    color: #2d3748;
+    font-weight: 700;
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    border-left: none;
+    border-right: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+#network {
+    margin-left: 8px;
+    min-width: 330px;
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+#bluetooth {
+    margin-right: 0px;
+    border-right: 2px solid rgba(255, 255, 255, 0.5);
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+/* Tray - standalone */
+#tray {
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 50%, #43e97b 100%);
+    margin: 4px 8px 4px 8px;
+    padding: 4px 12px;
+    color: #2d3748;
+    font-weight: 700;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    border-radius: 14px;
+}
+
+#clock {
+    background: linear-gradient(90deg, #ff0844 0%, #ffb199 50%, #ff0844 100%);
+    margin: 4px 0px;
+    padding: 4px 16px;
+    border-radius: 14px;
+    color: #ffffff;
+    font-weight: 900;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+#workspaces {
+    padding: 2px 6px;
+}
+
+#workspaces button {
+    color: rgba(255, 255, 255, 0.6);
+    padding: 2px 10px;
+    margin: 0px 3px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#workspaces button.active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+}
+
+#workspaces button.urgent {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.35);
+}
+
+#window,
+#mode,
+#submap {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+#temperature.critical {
+    background: linear-gradient(90deg, #ff0844 0%, #ff5555 100%);
+}
+
+#battery.charging {
+    background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+}
+
+#battery.warning:not(.charging) {
+    background: linear-gradient(90deg, #fa709a 0%, #fee140 100%);
+}
+
+#battery.critical:not(.charging) {
+    background: linear-gradient(90deg, #ff0844 0%, #ff5555 100%);
+}
+
+#network.disconnected {
+    background: linear-gradient(90deg, #868f96 0%, #596164 100%);
+}
+
+#pulseaudio.muted {
+    background: linear-gradient(90deg, #868f96 0%, #596164 100%);
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}

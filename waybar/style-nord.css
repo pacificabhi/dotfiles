@@ -110,26 +110,46 @@ window#waybar {
                 0 0 20px rgba(137, 220, 235, 0.15);
 }
 
-/* Right most group - Network and tray */
+/* Network and Bluetooth island */
 #network,
-#tray {
+#bluetooth {
     background: rgba(24, 24, 37, 0.85);
-    margin: 4px 2px;
+    margin: 4px 0px;
     padding: 4px 12px;
     color: #94e2d5;
-    border: 2px solid rgba(148, 226, 213, 0.3);
+    border-top: 2px solid rgba(148, 226, 213, 0.3);
+    border-bottom: 2px solid rgba(148, 226, 213, 0.3);
+    border-left: none;
+    border-right: none;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4),
                 0 0 20px rgba(148, 226, 213, 0.15);
-    border-radius: 12px;
 }
 
 #network {
     margin-left: 8px;
     min-width: 330px;
+    border-left: 2px solid rgba(148, 226, 213, 0.3);
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
 }
 
+#bluetooth {
+    margin-right: 0px;
+    border-right: 2px solid rgba(148, 226, 213, 0.3);
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+/* Tray - standalone */
 #tray {
-    margin-right: 8px;
+    background: rgba(24, 24, 37, 0.85);
+    margin: 4px 8px 4px 8px;
+    padding: 4px 12px;
+    color: #94e2d5;
+    border: 2px solid rgba(148, 226, 213, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(148, 226, 213, 0.15);
 }
 
 /* Clock - standalone */

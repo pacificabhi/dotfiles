@@ -1,0 +1,231 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: 600;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* Neon Tubes - Glowing Tube Segments */
+
+#workspaces,
+#window,
+#mode,
+#submap {
+    background: rgba(10, 10, 20, 0.98);
+    margin: 4px 0px 4px 8px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    color: #ff2a6d;
+    text-shadow: 0 0 10px #ff2a6d, 0 0 20px #ff2a6d;
+    border: 3px solid #ff2a6d;
+    box-shadow: 0 0 10px #ff2a6d, 0 0 20px #ff2a6d, 0 4px 30px rgba(0, 0, 0, 0.8);
+}
+
+#custom-disk,
+#temperature,
+#cpu,
+#memory,
+#custom-gpu {
+    background: rgba(10, 10, 20, 0.98);
+    margin: 4px 0px;
+    padding: 4px 12px;
+    color: #05d9e8;
+    text-shadow: 0 0 10px #05d9e8, 0 0 20px #05d9e8;
+    border-top: 3px solid #05d9e8;
+    border-bottom: 3px solid #05d9e8;
+    border-left: none;
+    border-right: none;
+    box-shadow: 0 0 10px #05d9e8;
+}
+
+#custom-disk {
+    margin-left: 8px;
+    border-left: 3px solid #05d9e8;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    box-shadow: 0 0 10px #05d9e8, 0 0 20px #05d9e8;
+}
+
+#custom-gpu {
+    margin-right: 0px;
+    border-right: 3px solid #05d9e8;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 0 10px #05d9e8, 0 0 20px #05d9e8;
+}
+
+#backlight,
+#battery {
+    background: rgba(10, 10, 20, 0.98);
+    margin: 4px 0px;
+    padding: 4px 12px;
+    color: #d913f5;
+    text-shadow: 0 0 10px #d913f5, 0 0 20px #d913f5;
+    border-top: 3px solid #d913f5;
+    border-bottom: 3px solid #d913f5;
+    border-left: none;
+    border-right: none;
+    box-shadow: 0 0 10px #d913f5;
+}
+
+#backlight {
+    margin-left: 8px;
+    min-width: 60px;
+    border-left: 3px solid #d913f5;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    box-shadow: 0 0 10px #d913f5, 0 0 20px #d913f5;
+}
+
+#battery {
+    margin-right: 0px;
+    min-width: 70px;
+    border-right: 3px solid #d913f5;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 0 10px #d913f5, 0 0 20px #d913f5;
+}
+
+#pulseaudio {
+    background: rgba(10, 10, 20, 0.98);
+    margin: 4px 8px;
+    padding: 4px 12px;
+    min-width: 80px;
+    color: #01ffc3;
+    text-shadow: 0 0 10px #01ffc3, 0 0 20px #01ffc3;
+    border: 3px solid #01ffc3;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #01ffc3, 0 0 20px #01ffc3, 0 4px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Network and Bluetooth island */
+#network,
+#bluetooth {
+    background: rgba(10, 10, 20, 0.98);
+    margin: 4px 0px;
+    padding: 4px 12px;
+    color: #f5d300;
+    text-shadow: 0 0 10px #f5d300, 0 0 20px #f5d300;
+    border: 3px solid #f5d300;
+    box-shadow: 0 0 10px #f5d300, 0 0 20px #f5d300, 0 4px 30px rgba(0, 0, 0, 0.8);
+}
+
+#network {
+    margin-left: 8px;
+    min-width: 330px;
+    border-left: 2px solid ;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+#bluetooth {
+    margin-right: 0px;
+    border-right: 2px solid ;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+/* Tray - standalone */
+#tray {
+    background: rgba(10, 10, 20, 0.98);
+    margin: 4px 8px 4px 8px;
+    padding: 4px 12px;
+    color: #f5d300;
+    text-shadow: 0 0 10px #f5d300, 0 0 20px #f5d300;
+    border: 3px solid #f5d300;
+    box-shadow: 0 0 10px #f5d300, 0 0 20px #f5d300, 0 4px 30px rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+#clock {
+    background: rgba(10, 10, 20, 0.98);
+    margin: 4px 0px;
+    padding: 4px 16px;
+    border-radius: 20px;
+    color: #ff6c11;
+    font-weight: 700;
+    text-shadow: 0 0 10px #ff6c11, 0 0 20px #ff6c11, 0 0 30px #ff6c11;
+    border: 3px solid #ff6c11;
+    box-shadow: 0 0 10px #ff6c11, 0 0 20px #ff6c11, 0 0 30px #ff6c11, 0 4px 30px rgba(0, 0, 0, 0.8);
+}
+
+#workspaces {
+    padding: 2px 6px;
+}
+
+#workspaces button {
+    color: rgba(255, 42, 109, 0.4);
+    padding: 2px 10px;
+    margin: 0px 3px;
+    border-radius: 12px;
+    background: transparent;
+}
+
+#workspaces button.active {
+    color: #ff2a6d;
+    text-shadow: 0 0 10px #ff2a6d;
+    background: rgba(255, 42, 109, 0.15);
+}
+
+#workspaces button:hover {
+    background: rgba(255, 42, 109, 0.1);
+    color: #ff2a6d;
+    text-shadow: 0 0 8px #ff2a6d;
+}
+
+#workspaces button.urgent {
+    color: #ff2a6d;
+    text-shadow: 0 0 15px #ff2a6d;
+    background: rgba(255, 42, 109, 0.2);
+}
+
+#window,
+#mode,
+#submap {
+    font-style: italic;
+    color: #ff2a6d;
+}
+
+#temperature.critical {
+    color: #ff2a6d;
+    text-shadow: 0 0 15px #ff2a6d, 0 0 30px #ff2a6d;
+}
+
+#battery.charging {
+    color: #01ffc3;
+    text-shadow: 0 0 15px #01ffc3;
+}
+
+#battery.warning:not(.charging) {
+    color: #f5d300;
+    text-shadow: 0 0 15px #f5d300;
+}
+
+#battery.critical:not(.charging) {
+    color: #ff2a6d;
+    text-shadow: 0 0 15px #ff2a6d;
+}
+
+#network.disconnected {
+    color: #ff2a6d;
+    text-shadow: 0 0 10px #ff2a6d;
+}
+
+#pulseaudio.muted {
+    color: rgba(1, 255, 195, 0.3);
+    text-shadow: 0 0 5px rgba(1, 255, 195, 0.3);
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}

@@ -1,0 +1,210 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: 600;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* Hologram - Futuristic Cyan/Blue Theme */
+
+#workspaces,
+#window,
+#mode,
+#submap {
+    background: linear-gradient(135deg, rgba(0, 200, 255, 0.15) 0%, rgba(0, 255, 200, 0.15) 100%);
+    margin: 4px 0px 4px 8px;
+    padding: 4px 14px;
+    border-radius: 12px;
+    color: rgba(0, 255, 255, 0.95);
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 200, 255, 0.3);
+}
+
+#custom-disk,
+#temperature,
+#cpu,
+#memory,
+#custom-gpu {
+    background: linear-gradient(135deg, rgba(0, 200, 255, 0.12) 0%, rgba(100, 200, 255, 0.12) 100%);
+    margin: 4px 0px;
+    padding: 4px 12px;
+    color: rgba(100, 200, 255, 0.95);
+    border-top: 1px solid rgba(0, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+    border-left: none;
+    border-right: none;
+}
+
+#custom-disk {
+    margin-left: 8px;
+    border-left: 1px solid rgba(0, 255, 255, 0.3);
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+#custom-gpu {
+    margin-right: 0px;
+    border-right: 1px solid rgba(0, 255, 255, 0.3);
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+#backlight,
+#battery {
+    background: linear-gradient(135deg, rgba(0, 200, 255, 0.12) 0%, rgba(150, 200, 255, 0.12) 100%);
+    margin: 4px 0px;
+    padding: 4px 12px;
+    color: rgba(150, 200, 255, 0.95);
+    border-top: 1px solid rgba(0, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+    border-left: none;
+    border-right: none;
+}
+
+#backlight {
+    margin-left: 8px;
+    min-width: 60px;
+    border-left: 1px solid rgba(0, 255, 255, 0.3);
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+#battery {
+    margin-right: 0px;
+    min-width: 70px;
+    border-right: 1px solid rgba(0, 255, 255, 0.3);
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+#pulseaudio {
+    background: linear-gradient(135deg, rgba(0, 200, 255, 0.15) 0%, rgba(0, 255, 200, 0.15) 100%);
+    margin: 4px 8px;
+    padding: 4px 12px;
+    min-width: 80px;
+    color: rgba(0, 255, 255, 0.95);
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 200, 255, 0.3);
+}
+
+/* Network and Bluetooth island */
+#network,
+#bluetooth {
+    background: linear-gradient(135deg, rgba(0, 200, 255, 0.15) 0%, rgba(0, 255, 200, 0.15) 100%);
+    margin: 4px 0px;
+    padding: 4px 12px;
+    color: rgba(100, 255, 200, 0.95);
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 200, 255, 0.3);
+}
+
+#network {
+    margin-left: 8px;
+    min-width: 330px;
+    border-left: 2px solid ;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+#bluetooth {
+    margin-right: 0px;
+    border-right: 2px solid ;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+/* Tray - standalone */
+#tray {
+    background: linear-gradient(135deg, rgba(0, 200, 255, 0.15) 0%, rgba(0, 255, 200, 0.15) 100%);
+    margin: 4px 8px 4px 8px;
+    padding: 4px 12px;
+    color: rgba(100, 255, 200, 0.95);
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 200, 255, 0.3);
+}
+
+#clock {
+    background: linear-gradient(135deg, rgba(0, 200, 255, 0.15) 0%, rgba(0, 255, 200, 0.15) 100%);
+    margin: 4px 0px;
+    padding: 4px 16px;
+    border-radius: 12px;
+    color: rgba(0, 255, 255, 0.98);
+    font-weight: 700;
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 200, 255, 0.3);
+}
+
+#workspaces {
+    padding: 2px 6px;
+}
+
+#workspaces button {
+    color: rgba(0, 255, 255, 0.4);
+    padding: 2px 10px;
+    margin: 0px 3px;
+    border-radius: 8px;
+    background: transparent;
+}
+
+#workspaces button.active {
+    color: rgba(0, 255, 255, 0.95);
+    background: rgba(0, 255, 255, 0.12);
+}
+
+#workspaces button:hover {
+    background: rgba(0, 255, 255, 0.08);
+    color: rgba(0, 255, 255, 0.8);
+}
+
+#workspaces button.urgent {
+    color: rgba(255, 100, 200, 0.95);
+    background: rgba(255, 100, 200, 0.15);
+}
+
+#window,
+#mode,
+#submap {
+    font-style: italic;
+    color: rgba(0, 255, 255, 0.8);
+}
+
+#temperature.critical {
+    color: rgba(255, 100, 200, 0.95);
+}
+
+#battery.charging {
+    color: rgba(100, 255, 200, 0.95);
+}
+
+#battery.warning:not(.charging) {
+    color: rgba(255, 200, 100, 0.95);
+}
+
+#battery.critical:not(.charging) {
+    color: rgba(255, 100, 200, 0.95);
+}
+
+#network.disconnected {
+    color: rgba(255, 100, 200, 0.95);
+}
+
+#pulseaudio.muted {
+    color: rgba(0, 255, 255, 0.3);
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background: rgba(255, 100, 200, 0.15);
+}
