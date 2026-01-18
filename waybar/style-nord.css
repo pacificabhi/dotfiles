@@ -54,16 +54,16 @@ window#waybar {
 
 #custom-disk {
     margin-left: 8px;
-    border-left: 2px solid rgba(137, 180, 250, 0.3) !important;
-    border-top-left-radius: 12px !important;
-    border-bottom-left-radius: 12px !important;
+    border-left: 2px solid rgba(137, 180, 250, 0.3);
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
 }
 
 #custom-gpu {
     margin-right: 0px;
-    border-right: 2px solid rgba(137, 180, 250, 0.3) !important;
-    border-top-right-radius: 12px !important;
-    border-bottom-right-radius: 12px !important;
+    border-right: 2px solid rgba(137, 180, 250, 0.3);
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 
 /* Battery - standalone */
