@@ -55,32 +55,16 @@ window#waybar {
     border-bottom-right-radius: 12px;
 }
 
-#backlight,
+/* Battery - standalone */
 #battery {
     background: linear-gradient(135deg, rgba(0, 200, 255, 0.12) 0%, rgba(150, 200, 255, 0.12) 100%);
-    margin: 4px 0px;
+    margin: 4px 8px;
     padding: 4px 12px;
-    color: rgba(150, 200, 255, 0.95);
-    border-top: 1px solid rgba(0, 255, 255, 0.3);
-    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
-    border-left: none;
-    border-right: none;
-}
-
-#backlight {
-    margin-left: 8px;
-    min-width: 60px;
-    border-left: 1px solid rgba(0, 255, 255, 0.3);
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
-}
-
-#battery {
-    margin-right: 0px;
     min-width: 70px;
-    border-right: 1px solid rgba(0, 255, 255, 0.3);
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
+    color: rgba(150, 200, 255, 0.95);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 200, 255, 0.3);
 }
 
 #pulseaudio {

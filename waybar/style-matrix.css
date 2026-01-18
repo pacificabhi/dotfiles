@@ -62,35 +62,17 @@ window#waybar {
     border-bottom-right-radius: 12px;
 }
 
-/* Middle group - Display controls island */
-#backlight,
+/* Battery - standalone */
 #battery {
     background: rgba(0, 0, 0, 0.95);
-    margin: 4px 0px;
+    margin: 4px 8px;
     padding: 4px 12px;
+    min-width: 70px;
     color: #00ff00;
-    border-top: 2px solid rgba(0, 255, 0, 0.5);
-    border-bottom: 2px solid rgba(0, 255, 0, 0.5);
-    border-left: none;
-    border-right: none;
+    border: 2px solid rgba(0, 255, 0, 0.5);
+    border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8),
                 0 0 30px rgba(0, 255, 0, 0.3);
-}
-
-#backlight {
-    margin-left: 8px;
-    min-width: 60px;
-    border-left: 2px solid rgba(0, 255, 0, 0.5);
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
-}
-
-#battery {
-    margin-right: 0px;
-    min-width: 70px;
-    border-right: 2px solid rgba(0, 255, 0, 0.5);
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
 }
 
 /* Audio island - Standalone */

@@ -59,34 +59,18 @@ window#waybar {
     border-bottom-right-radius: 6px;
 }
 
-#backlight,
+/* Battery - standalone */
 #battery {
     background: linear-gradient(180deg, #8ba88b 0%, #a3c6a3 50%, #8ba88b 100%);
-    margin: 4px 0px;
+    margin: 4px 8px;
     padding: 4px 12px;
+    min-width: 70px;
     color: #1a341a;
     font-family: "Courier New", monospace;
     font-weight: 900;
-    border-top: 3px solid #4d6b4d;
-    border-bottom: 3px solid #4d6b4d;
-    border-left: none;
-    border-right: none;
-}
-
-#backlight {
-    margin-left: 8px;
-    min-width: 60px;
-    border-left: 3px solid #4d6b4d;
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
-}
-
-#battery {
-    margin-right: 0px;
-    min-width: 70px;
-    border-right: 3px solid #4d6b4d;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
+    border: 3px solid #4d6b4d;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 #pulseaudio {

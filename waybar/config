@@ -19,7 +19,6 @@
         "memory",
         "custom/gpu",
         "pulseaudio",
-        "backlight",
         "battery",
         "network",
         "bluetooth",
@@ -95,14 +94,6 @@
         "format-full": "{capacity}% \uf240",
         "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
         "tooltip-format": "{timeTo}, {capacity}%\n{power}W"
-    },
-    "backlight": {
-        "device": "intel_backlight",
-        "format": "{percent}% {icon}",
-        "format-icons": ["\uf5df", "\uf5e0", "\uf5e1", "\uf5e2", "\uf5e3", "\uf5e4", "\uf5e5", "\uf5e6", "\uf5e7"],
-        "on-scroll-up": "brightnessctl set 5%+",
-        "on-scroll-down": "brightnessctl set 5%-",
-        "tooltip-format": "Brightness: {percent}%"
     },
     "pulseaudio": {
         "format": "{volume}% {icon}",

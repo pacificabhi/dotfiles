@@ -57,33 +57,17 @@ window#waybar {
     border-bottom-right-radius: 8px;
 }
 
-#backlight,
+/* Battery - standalone */
 #battery {
     background: rgba(10, 10, 15, 0.95);
-    margin: 4px 0px;
+    margin: 4px 8px;
     padding: 4px 12px;
+    min-width: 70px;
     color: #00ffff;
     text-shadow: 2px 0 #ff00ff, -2px 0 #ffff00;
-    border-top: 2px solid #00ffff;
-    border-bottom: 2px solid #00ffff;
-    border-left: none;
-    border-right: none;
-}
-
-#backlight {
-    margin-left: 8px;
-    min-width: 60px;
-    border-left: 2px solid #00ffff;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-}
-
-#battery {
-    margin-right: 0px;
-    min-width: 70px;
-    border-right: 2px solid #00ffff;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border: 2px solid #00ffff;
+    border-radius: 8px;
+    box-shadow: 2px 2px 0 #ff00ff, -2px -2px 0 #ffff00;
 }
 
 #pulseaudio {

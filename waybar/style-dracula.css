@@ -63,35 +63,17 @@ window#waybar {
     border-bottom-right-radius: 12px;
 }
 
-/* Middle group - Display controls island (backlight, battery) */
-#backlight,
+/* Battery - standalone */
 #battery {
     background: rgba(40, 42, 54, 0.9);
-    margin: 4px 0px;
+    margin: 4px 8px;
     padding: 4px 12px;
+    min-width: 70px;
     color: #ff79c6;
-    border-top: 2px solid rgba(255, 121, 198, 0.4);
-    border-bottom: 2px solid rgba(255, 121, 198, 0.4);
-    border-left: none;
-    border-right: none;
+    border: 2px solid rgba(255, 121, 198, 0.4);
+    border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5),
                 0 0 20px rgba(255, 121, 198, 0.2);
-}
-
-#backlight {
-    margin-left: 8px;
-    min-width: 60px;
-    border-left: 2px solid rgba(255, 121, 198, 0.4);
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
-}
-
-#battery {
-    margin-right: 0px;
-    min-width: 70px;
-    border-right: 2px solid rgba(255, 121, 198, 0.4);
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
 }
 
 /* Audio island - Standalone */

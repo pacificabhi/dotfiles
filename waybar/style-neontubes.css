@@ -60,36 +60,17 @@ window#waybar {
     box-shadow: 0 0 10px #05d9e8, 0 0 20px #05d9e8;
 }
 
-#backlight,
+/* Battery - standalone */
 #battery {
     background: rgba(10, 10, 20, 0.98);
-    margin: 4px 0px;
+    margin: 4px 8px;
     padding: 4px 12px;
+    min-width: 70px;
     color: #d913f5;
     text-shadow: 0 0 10px #d913f5, 0 0 20px #d913f5;
-    border-top: 3px solid #d913f5;
-    border-bottom: 3px solid #d913f5;
-    border-left: none;
-    border-right: none;
-    box-shadow: 0 0 10px #d913f5;
-}
-
-#backlight {
-    margin-left: 8px;
-    min-width: 60px;
-    border-left: 3px solid #d913f5;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    box-shadow: 0 0 10px #d913f5, 0 0 20px #d913f5;
-}
-
-#battery {
-    margin-right: 0px;
-    min-width: 70px;
-    border-right: 3px solid #d913f5;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    box-shadow: 0 0 10px #d913f5, 0 0 20px #d913f5;
+    border: 3px solid #d913f5;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #d913f5, 0 0 20px #d913f5, 0 4px 30px rgba(0, 0, 0, 0.8);
 }
 
 #pulseaudio {

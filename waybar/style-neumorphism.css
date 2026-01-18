@@ -63,35 +63,18 @@ window#waybar {
                 inset -2px -2px 4px rgba(255, 255, 255, 0.5);
 }
 
-/* Middle group - Display controls island */
-#backlight,
+/* Battery - standalone */
 #battery {
     background: #e0e5ec;
-    margin: 4px 0px;
+    margin: 4px 8px;
     padding: 4px 12px;
+    min-width: 70px;
     color: #9f7aea;
     border: none;
-    box-shadow: 6px 6px 12px rgba(163, 177, 198, 0.6),
-                -6px -6px 12px rgba(255, 255, 255, 0.5);
-}
-
-#backlight {
-    margin-left: 8px;
-    min-width: 60px;
-    border-top-left-radius: 16px;
-    border-bottom-left-radius: 16px;
+    border-radius: 16px;
     box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
                 -9px -9px 16px rgba(255, 255, 255, 0.5),
-                inset 2px 2px 4px rgba(163, 177, 198, 0.2);
-}
-
-#battery {
-    margin-right: 0px;
-    min-width: 70px;
-    border-top-right-radius: 16px;
-    border-bottom-right-radius: 16px;
-    box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
-                -9px -9px 16px rgba(255, 255, 255, 0.5),
+                inset 2px 2px 4px rgba(163, 177, 198, 0.2),
                 inset -2px -2px 4px rgba(255, 255, 255, 0.5);
 }
 
