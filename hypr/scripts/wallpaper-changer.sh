@@ -1,24 +1,24 @@
 #!/bin/bash
+# wallpaper-changer.sh — Quick wallpaper picker (applies to all monitors via IPC)
+# For per-monitor control, use monitor-menu.sh.
 
-# Directory containing wallpapers
 WALLPAPER_DIR="$HOME/.config/hypr/wallpapers"
-
-# Hyprpaper configuration file
 HYPRPAPER_CONF="$HOME/.config/hypr/hyprpaper.conf"
 
-# Get a list of wallpapers
-WALLPAPERS=$(find "$WALLPAPER_DIR" -type f -printf "%f\n")
+mapfile -t files < <(find "$WALLPAPER_DIR" -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' \) -printf '%f\n' | sort)
 
-# Show wallpaper selection menu with rofi
-SELECTED_WALLPAPER=$(echo "$WALLPAPERS" | wofi --dmenu -p "Select Wallpaper")
+[[ ${#files[@]} -eq 0 ]] && exit 0
 
-# If a wallpaper is selected
-if [ -n "$SELECTED_WALLPAPER" ]; then
-    # Full path to the selected wallpaper
-    NEW_WALLPAPER_PATH="$WALLPAPER_DIR/$SELECTED_WALLPAPER"
+selected=$(printf '%s\n' "${files[@]}" | wofi --dmenu --insensitive --prompt "Select Wallpaper")
+[[ -z "$selected" ]] && exit 0
 
-    # Update hyprpaper.conf to make the change persistent
-    sed -i "s|\$wallpath =.*|\$wallpath = \$walldir/$SELECTED_WALLPAPER|g" "$HYPRPAPER_CONF"
+new_path="$WALLPAPER_DIR/$selected"
 
-    nohup hyprpaper > /dev/null 2>&1 &
-fi
+# Apply to all active monitors via hyprpaper IPC
+hyprctl hyprpaper preload "$new_path" &>/dev/null
+hyprctl monitors -j | jq -r '.[].name' | while read -r mon; do
+    hyprctl hyprpaper wallpaper "$mon,$new_path" &>/dev/null
+done
+
+# Update $wallpath in hyprpaper.conf for persistence
+sed -i "s|\(\$wallpath\s*=\s*\).*|\1$new_path|" "$HYPRPAPER_CONF"
