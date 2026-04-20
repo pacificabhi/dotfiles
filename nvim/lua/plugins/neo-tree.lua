@@ -10,5 +10,16 @@ return {
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
   },
+  opts = {
+    filesystem = {
+      window = {
+        mappings = {
+          ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = false } },
+          ["<C-f>"] = { "scroll_preview", config = { direction = -10 } },
+          ["<C-b>"] = { "scroll_preview", config = { direction = 10 } },
+        },
+      },
+    },
+  },
 }
 

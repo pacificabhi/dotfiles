@@ -31,8 +31,9 @@ cur_scale() { mon_field "$1" '.scale'; }
 
 # ── workspace assignment state (source of truth for all 10 workspaces) ────────
 
-declare -A WS_ASSIGN      # WS_ASSIGN[N]   = monitor_name
-declare -A MON_WALLPAPER  # MON_WALLPAPER[name] = /absolute/path
+declare -A WS_ASSIGN        # WS_ASSIGN[N]   = monitor_name
+declare -A MON_WALLPAPER    # MON_WALLPAPER[name] = /absolute/path
+declare -A MON_DEFAULT_WS   # MON_DEFAULT_WS[name] = workspace_id  (shown on reload/startup)
 
 init_ws_assign() {
     local default_mon
@@ -46,8 +47,14 @@ init_ws_assign() {
     # 2. Override with saved rules from monitors.conf (covers unvisited workspaces)
     if [[ -f ~/.config/hypr/monitors.conf ]]; then
         while IFS= read -r line; do
-            if [[ "$line" =~ ^workspace=([0-9]+),monitor:(.+)$ ]]; then
-                WS_ASSIGN[${BASH_REMATCH[1]}]="${BASH_REMATCH[2]}"
+            # Strip whitespace for tolerant parsing
+            local stripped="${line//[[:space:]]}"
+            if [[ "$stripped" =~ ^workspace=([0-9]+),monitor:([^,]+)(,.*)?$ ]]; then
+                local ws="${BASH_REMATCH[1]}"
+                local mon="${BASH_REMATCH[2]}"
+                local rest="${BASH_REMATCH[3]}"
+                WS_ASSIGN[$ws]="$mon"
+                [[ "$rest" == *"default:true"* ]] && MON_DEFAULT_WS[$mon]="$ws"
             fi
         done < ~/.config/hypr/monitors.conf
     fi
@@ -324,6 +331,52 @@ menu_workspaces() {
     move_workspaces "$mon" "${assigned[@]}"
 }
 
+# ── default workspace menu ────────────────────────────────────────────────────
+
+menu_default_workspace() {
+    # Pick the workspace that appears on this monitor on startup/reload.
+    # Only workspaces currently assigned to this monitor are eligible.
+    local mon="$1"
+    local current="${MON_DEFAULT_WS[$mon]}"
+
+    local eligible=()
+    for ws in $(seq 1 10); do
+        [[ "${WS_ASSIGN[$ws]}" == "$mon" ]] && eligible+=("$ws")
+    done
+
+    if [[ ${#eligible[@]} -eq 0 ]]; then
+        pick "No workspaces assigned to $mon — assign some first" "OK" > /dev/null
+        return
+    fi
+
+    local options=("  (none)")
+    for ws in "${eligible[@]}"; do
+        if [[ "$ws" == "$current" ]]; then
+            options+=("● Workspace $ws  ← current default")
+        else
+            options+=("  Workspace $ws")
+        fi
+    done
+
+    local choice
+    choice=$(pick "Default workspace — $mon" "${options[@]}") || return
+    [[ -z "$choice" ]] && return
+
+    if [[ "$choice" == *"(none)"* ]]; then
+        unset 'MON_DEFAULT_WS[$mon]'
+        return
+    fi
+
+    local num
+    num=$(echo "$choice" | grep -oP 'Workspace \K[0-9]+')
+    [[ -z "$num" ]] && return
+    MON_DEFAULT_WS[$mon]="$num"
+
+    # Live preview: show that workspace on this monitor now
+    hyprctl dispatch focusmonitor "$mon" &>/dev/null
+    hyprctl dispatch workspace "$num" &>/dev/null
+}
+
 # ── disable/enable ────────────────────────────────────────────────────────────
 
 toggle_monitor() {
@@ -354,25 +407,28 @@ menu_monitor() {
         [[ "$disabled" == "true" ]] && disabled_label="Enable monitor" || disabled_label="Disable monitor"
 
         local wp_file="${MON_WALLPAPER[$mon]##*/}"
+        local default_ws="${MON_DEFAULT_WS[$mon]:-none}"
 
         local choice
         choice=$(pick "$mon — $model" \
-            "Resolution    $mode" \
-            "Position      $pos" \
-            "Scale         $scale" \
-            "Workspaces    ${ws_list:-none}" \
-            "Wallpaper     ${wp_file:-none}" \
+            "Resolution         $mode" \
+            "Position           $pos" \
+            "Scale              $scale" \
+            "Workspaces         ${ws_list:-none}" \
+            "Default workspace  $default_ws" \
+            "Wallpaper          ${wp_file:-none}" \
             "──────────────────────────" \
             "$disabled_label" \
             "← Back") || return
 
         case "$choice" in
-            Resolution*)   menu_resolution "$mon" ;;
-            Position*)     menu_position   "$mon" ;;
-            Scale*)        menu_scale      "$mon" ;;
-            Workspaces*)   menu_workspaces "$mon" ;;
-            Wallpaper*)    menu_wallpaper  "$mon" ;;
-            "Disable"*|"Enable"*) toggle_monitor "$mon" ;;
+            Resolution*)          menu_resolution         "$mon" ;;
+            Position*)            menu_position           "$mon" ;;
+            Scale*)               menu_scale              "$mon" ;;
+            Workspaces*)          menu_workspaces         "$mon" ;;
+            "Default workspace"*) menu_default_workspace  "$mon" ;;
+            Wallpaper*)           menu_wallpaper          "$mon" ;;
+            "Disable"*|"Enable"*) toggle_monitor          "$mon" ;;
             "← Back"|"")  return ;;
         esac
     done
@@ -448,10 +504,15 @@ save_config() {
         done < <(echo "$mons" | jq -r '.[].name')
 
         echo ""
-        # workspace lines — all 10, from WS_ASSIGN
+        # workspace lines — all 10, from WS_ASSIGN (+ default:true for per-monitor default)
         for ws in $(seq 1 10); do
             local mon="${WS_ASSIGN[$ws]}"
-            [[ -n "$mon" ]] && echo "workspace=$ws,monitor:$mon"
+            [[ -z "$mon" ]] && continue
+            if [[ "${MON_DEFAULT_WS[$mon]}" == "$ws" ]]; then
+                echo "workspace=$ws,monitor:$mon,default:true"
+            else
+                echo "workspace=$ws,monitor:$mon"
+            fi
         done
 
     } > ~/.config/hypr/monitors.conf
